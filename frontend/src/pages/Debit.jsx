@@ -201,27 +201,28 @@ const [chartData, setChartData] = useState([]);
               <option value='Food'>Food</option>
               <option value='Travel'>Travel</option>
               <option value='Billing'>Billing</option>
+              <option value='Billing'>Lend</option>
               <option value='Others'>Others</option>
             </select>
           </div>
-          <div className='flex gap-2 text-lg'>
-            <label className='w-32'>Amount</label>
+          <div className='flex gap-4 text-lg'>
+            <label className=''>Amount</label>
             <input
               name='amount'
               value={debitForm.amount}
               onChange={handleInputChange}
               type='number'
-              className='border p-1'
+              className='border w-36 p-1'
             />
           </div>
-          <div className='flex gap-2 text-lg'>
-            <label className='w-32'>Description</label>
+          <div className='flex gap-4 text-lg'>
+            <label className=''>Description</label>
             <input
               name='description'
               value={debitForm.description}
               onChange={handleInputChange}
               type='text'
-              className='border p-1'
+              className='border w-36 p-1'
             />
           </div>
           <button

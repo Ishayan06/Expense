@@ -5,7 +5,7 @@ import { ExpenseContext } from '../context/ExpenseContext.jsx';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-const creditCategories = ['Salary', 'Bonus', 'Refund'];
+const creditCategories = ['Salary', 'Bonus', 'Refund','pocket Money','Other'];
 
 function Credit() {
   const [visible, setVisible] = useState(false);
@@ -211,24 +211,24 @@ function Credit() {
               ))}
             </select>
           </div>
-          <div className='flex gap-2 text-lg'>
-            <label className='w-32'>Amount</label>
+          <div className='flex gap-4 text-lg'>
+            <label className=''>Amount</label>
             <input
               name='amount'
               value={creditForm.amount}
               onChange={handleInputChange}
               type='number'
-              className='border p-1'
+              className='w-36 border p-1'
             />
           </div>
-          <div className='flex gap-2 text-lg'>
-            <label className='w-32'>Description</label>
+          <div className='flex gap-4 text-lg'>
+            <label className=''>Description</label>
             <input
               name='description'
               value={creditForm.description}
               onChange={handleInputChange}
               type='text'
-              className='border p-1'
+              className='border w-36 p-1'
             />
           </div>
           <button

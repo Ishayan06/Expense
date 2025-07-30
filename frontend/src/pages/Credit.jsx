@@ -196,7 +196,7 @@ function Credit() {
       {visible && (
         <div className='bg-white mt-2 shadow-lg rounded-lg flex flex-col gap-4 items-center sm:w-[40vw] w-[75vw] py-5'>
           <div className='flex gap-2 text-lg'>
-            <label className='w-32'>Category</label>
+            <label className='w-28'>Category</label>
             <select
               name='category'
               value={creditForm.category}

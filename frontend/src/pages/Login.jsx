@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { ExpenseContext } from "../context/ExpenseContext";
-import { assets } from "../assets/assets";
+
 
 function Login() {
   const [currentState, setCurrentState] = useState("Sign up");

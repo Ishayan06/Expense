@@ -16,9 +16,9 @@ app.use(cors())
 
 //api endpoint
 app.use('/api/user',userRoute)
-app.get('/',(req,res)=>{
-    res.send('api working')
-})
 app.use('/api/transaction',transactionRoute)
+app.get('/',(req,res)=>{
+    res.send('api working!!!')
+})
 
 app.listen(port,()=>console.log("server started at "+port))

@@ -2,6 +2,7 @@ import userModel from "../model/userModel.js";
 import validator from "validator";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import mongoose from "mongoose";
 
 const createToken = (id) => {
   if (!process.env.JWT_SECRET) {

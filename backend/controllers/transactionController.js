@@ -1,11 +1,11 @@
 import TransactionModel from "../model/transactionModel.js";
 import userModel from "../model/userModel.js";
+import mongoose from "mongoose";
 
 // Route: GET /api/transactions/summary
 export const getTransactionModelSummary = async (req, res) => {
   try {
     const userId = req.user.id;
-
     const user = await userModel.findById(userId).select("name email");
     const transactions = await TransactionModel.find({ userId });
 
@@ -32,7 +32,6 @@ export const getTransactionModelSummary = async (req, res) => {
     res.status(500).json({ success: false, message: "Server Error" });
   }
 };
-
 
 // Route: GET /api/transactions/monthly-summary
 export const getMonthlySummary = async (req, res) => {
@@ -89,44 +88,39 @@ export const getMonthlySummary = async (req, res) => {
   }
 };
 
-export const addCredit=async(req,res)=>{
+export const addCredit = async (req, res) => {
   try {
-    const {amount,category,description}=req.body;
-    const creditTransaction=await TransactionModel.create({
-      userId:req.user.id,
-      type:'credit',
+    const { amount, category, description } = req.body;
+    const creditTransaction = await TransactionModel.create({
+      userId: req.user.id,
+      type: 'credit',
       amount,
       category,
       description,
     });
     res.status(201).json({ success: true, data: creditTransaction });
-
   } catch (error) {
-     console.error("Add credit error:", error);
+    console.error("Add credit error:", error);
     res.status(500).json({ success: false, message: "Failed to add credit" });
   }
-}
+};
 
-export const addDebit=async(req,res)=>{
+export const addDebit = async (req, res) => {
   try {
-    const {amount,category,description}=req.body;
-    const debitTransaction=await TransactionModel.create({
-      userId:req.user.id,
-      type:'debit',
+    const { amount, category, description } = req.body;
+    const debitTransaction = await TransactionModel.create({
+      userId: req.user.id,
+      type: 'debit',
       amount,
       category,
       description,
     });
     res.status(201).json({ success: true, data: debitTransaction });
-    
   } catch (error) {
-     console.error("Add credit error:", error);
-    res.status(500).json({ success: false, message: "Failed to add credit" });
+    console.error("Add debit error:", error);
+    res.status(500).json({ success: false, message: "Failed to add debit" });
   }
-}
-
-
-
+};
 
 export const deleteData = async (req, res) => {
   try {
@@ -138,8 +132,6 @@ export const deleteData = async (req, res) => {
     if (!transaction) {
       return res.status(404).json({ success: false, message: "Transaction not found" });
     }
-
-    await TransactionModel.findByIdAndDelete(id);
 
     return res.status(200).json({ success: true, message: "Transaction deleted successfully" });
   } catch (error) {

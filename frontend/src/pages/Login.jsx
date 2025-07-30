@@ -28,9 +28,9 @@ function Login() {
         if (response.data.success) {
           setToken(response.data.token);
           localStorage.setItem("token", response.data.token);
-          toast.success("Registered successfully");
+          // toast.success("Registered successfully");
         } else {
-          toast.error(response.data.message);
+          // toast.error(response.data.message);
         }
       } else {
         const response = await axios.post(`${BackendUrl}/api/user/login`, {
@@ -41,14 +41,14 @@ function Login() {
         if (response.data.success) {
           setToken(response.data.token);
           localStorage.setItem("token", response.data.token);
-          toast.success("Logged in successfully");
+          // toast.success("Logged in successfully");
         } else {
-          toast.error(response.data.message);
+          // toast.error(response.data.message);
         }
       }
     } catch (error) {
       console.error(error);
-      toast.error(error.response?.data?.message || "Something went wrong");
+      // toast.error(error.response?.data?.message || "Something went wrong");
     }
   };
 
